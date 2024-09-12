@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+:root {
+    --primary-background: #1A1D22;
+    --surface: #353D49;
+    --tile: #5B6470;
+    --primary: #8859FF;
+    --mids: #6A43C6;
+    --secondary: #4E3291;
+    --heading: #F2EDFF;
+    --normal-text: #CAC9D1;
+    --dull-text: #94949C;
+    --success: #3CCB69;
+    --alert: #FF9757;
+    --destructive: #EB3F56;
+
+    --border-white: rgba(255, 255, 255, 0.5);
+    --border-black: rgba(0, 0, 0, 0.5);
+
+    --rounding-xs: 4px; /* Material Design Rounded Corners */
+    --rounding-sm: 8px;
+    --rounding-md: 12px;
+    --rounding-lg: 16px;
+    --rounding-xl: 24px;
+    --rounding-xxl: 28px;
+
+    --white-border: solid 2px var(--border-white);
+    --black-border: solid 2px var(--border-black);
+
+    --font-xs: 12px;
+    --font-sm: 18px;
+    --font-md: 24px;
+    --font-lg: 30px;
+    --font-xl: 36px;
+}
+
+body {
+    background-color: var(--primary-background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Ensure the entire viewport height is used */
+    margin: 0;
+    padding: 20px;
+    overflow: hidden; /* Prevent scroll */
+}
+
+* {
+    color: var(--normal-text);
+    font-family: 'DM Sans', sans-serif;
+}
+
+h1 {
+    color: var(--heading);
+    font-size: var(--font-xl);
+    font-family: 'DM Sans', sans-serif;
+    margin-bottom: 30px; /* Space below the heading */
+}
+
+#sid-toggle {
+    margin-bottom: 20px; /* Space between buttons and the form */
+}
+
+button {
+    background-color: var(--secondary);
+    border-radius: var(--rounding-lg); /* Adjusted to material design */
+    border: var(--white-border);
+    padding: 10px 20px;
+    font-size: var(--font-md);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: var(--heading);
+    margin: 0 10px; /* Space between buttons */
+}
+
+button:hover {
+    background-color: var(--mids);
+}
+
+button.active {
+    background-color: var(--primary);
+}
+
+form {
+    background-color: var(--surface);
+    border-radius: var(--rounding-md); /* Adjusted to material design */
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Ensure full width alignment */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: var(--font-sm);
+}
+
+input[type="text"] {
+    width: 100%; /* Make inputs full width */
+    padding: 10px;
+    border-radius: var(--rounding-sm); /* Adjusted to material design */
+    border: var(--white-border);
+    background-color: var(--tile);
+    color: var(--normal-text);
+    font-size: var(--font-sm);
+    margin-bottom: 15px; /* Space between inputs */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary);
+    background-color: var(--surface);
+}
+
+button#submit-button {
+    background-color: var(--primary);
+    border-radius: var(--rounding-lg); /* Adjusted to material design */
+    border: none;
+    padding: 10px 20px;
+    font-size: var(--font-md);
+    color: var(--heading);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Space above the button */
+    align-self: center; /* Center the button within the form */
+}
+
+button#submit-button:hover {
+    background-color: var(--mids);
+}
+
+/* Popup Styling */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 20;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: var(--surface);
+    padding: 20px;
+    border-radius: var(--rounding-md); /* Adjusted to material design */
+    width: 80%;
+    max-width: 500px;
+    color: var(--normal-text);
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
+.popup-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.popup-buttons button {
+    border-radius: var(--rounding-sm);
+    border: none;
+    padding: 10px 20px;
+    font-size: var(--font-md);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 10px;
+}
+
+.copy-button {
+    background-color: var(--primary);
+    color: var(--heading);
+}
+
+.copy-button:hover {
+    background-color: var(--mids);
+}
+
+.close-button {
+    background-color: var(--secondary);
+    color: var(--heading);
+}
+
+.close-button:hover {
+    background-color: var(--tile);
+}
+
+/* Info Input Container */
+#info-input-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--surface);
+    padding: var(--rounding-sm);
+    border-radius: var(--rounding-md);
+    padding: 10px 10px 8px 10px;
+    z-index: 1;
+}
+
+#info-input-container label {
+    color: var(--normal-text);
+    font-size: var(--font-sm);
+}
+
+#info-input-container input {
+    border: var(--white-border);
+    border-radius: var(--rounding-sm);
+    padding: 5px;
+    margin: 0px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: var(--font-sm);
+    width: 40px;
+}
