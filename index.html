@@ -1,18 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PF ATC PDC Maker</title>
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="icon" href="/images/favicon.png" type="image/png">
-  </head>
-  <body>
-        <h1>PDC Maker</h1>
-    <script src="script.js"></script>
-  </body>
+    <link rel="stylesheet" href="styles.css">
+    <title>PDC Maker</title>
+</head>
+<body>
+    <h1 class="site-title">PDC Maker</h1>
+    <div id="sid-toggle">
+        <button id="sid-button"><span>SID</span></button>
+        <button id="no-sid-button"><span>No SID</span></button>
+    </div>
+    <form id="aircraft-form">
+        <div>
+            <label for="callsign">Callsign:</label>
+            <input type="text" id="callsign" name="callsign" required>
+        </div>
+        <div id="sid-field" style="display: none;">
+            <label for="sid">SID:</label>
+            <input type="text" id="sid" name="sid">
+        </div>
+        <div>
+            <label for="destination">Destination/Arrival Airport:</label>
+            <input type="text" id="destination" name="destination" required>
+        </div>
+        <button id="submit-button">Submit</button>
+    </form>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span id="popup-text"></span>
+            <div class="popup-buttons">
+                <button class="copy-button">Copy</button>
+                <button class="close-button">Close</button>
+            </div>
+        </div>
+    </div>
+    <div id="info-input-container">
+        <label for="info-input">ATIS</label>
+        <input type="text" id="info-input" name="info-input" maxlength="1">
+    </div>
+    <script src="main.js"></script>
+</body>
 </html>
-
-<!-- **SID:** CLEARED [DEST] AS FILED, SQUAWK [SQUAWK]. INFORMATION [INFO] IS CURRENT, QNH [QNH].
-**NO SID:** CLEARED [DEST], [SID] DEPARTURE, THEN AS FILED, SQUAWK [SQUAWK]. INFORMATION [INFO] IS CURRENT, QNH [QNH]. -->
